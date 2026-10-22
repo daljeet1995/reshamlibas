@@ -6,7 +6,7 @@ import Reviews from "@/components/homepage/Reviews";
 import { Product } from "@/types/product.types";
 import { Review } from "@/types/review.types";
 
-export const newArrivalsData: Product[] = [
+const newArrivalsData: Product[] = [
   {
     id: 1,
     title: "T-shirt with Tape Details",
@@ -57,7 +57,7 @@ export const newArrivalsData: Product[] = [
   },
 ];
 
-export const topSellingData: Product[] = [
+const topSellingData: Product[] = [
   {
     id: 5,
     title: "Vertical Striped Shirt",
@@ -108,7 +108,7 @@ export const topSellingData: Product[] = [
   },
 ];
 
-export const relatedProductData: Product[] = [
+const relatedProductData: Product[] = [
   {
     id: 12,
     title: "Polo with Contrast Trims",
