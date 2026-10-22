@@ -1,5 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+    // ... aapka purana code jo bhi ho (images waala)
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.emavens.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.qrserver.com',
+      },
+    ],
+  },
+  
   // Enable experimental features for better debugging
   experimental: {
     serverComponentsExternalPackages: [],

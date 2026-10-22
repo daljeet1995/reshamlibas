@@ -9,7 +9,7 @@ const calcAdjustedTotalPrice = (
   quantity?: number
 ): number => {
   return (
-    (totalPrice + data.discount.percentage > 0
+    (data.discount.percentage > 0
       ? Math.round(data.price - (data.price * data.discount.percentage) / 100)
       : data.discount.amount > 0
       ? Math.round(data.price - data.discount.amount)
@@ -55,7 +55,6 @@ const initialState: CartsState = {
 
 export const cartsSlice = createSlice({
   name: "carts",
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
@@ -194,9 +193,17 @@ export const cartsSlice = createSlice({
           isItemInCart.quantity
         );
     },
+    // YEH NAYA CLEAR CART FUNCTION ADD KIYA GAYA HAI
+    clearCart: (state) => {
+      state.cart = null;
+      state.totalPrice = 0;
+      state.adjustedTotalPrice = 0;
+      state.action = null;
+    },
   },
 });
 
-export const { addToCart, removeCartItem, remove } = cartsSlice.actions;
+export const { addToCart, removeCartItem, remove, clearCart } =
+  cartsSlice.actions;
 
 export default cartsSlice.reducer;

@@ -37,6 +37,7 @@ export default function CartPage() {
               <div className="w-full p-3.5 md:px-6 flex-col space-y-4 md:space-y-6 rounded-[20px] border border-black/10">
                 {cart?.items.map((product, idx, arr) => (
                   <React.Fragment key={idx}>
+                    {/* Cart page ka ProductCard alag hota hai, jo humne pehle wala use nahi karna */}
                     <ProductCard data={product} />
                     {arr.length - 1 !== idx && (
                       <hr className="border-t-black/10" />
@@ -51,7 +52,7 @@ export default function CartPage() {
                 <div className="flex flex-col space-y-5">
                   <div className="flex items-center justify-between">
                     <span className="md:text-xl text-black/60">Subtotal</span>
-                    <span className="md:text-xl font-bold">${totalPrice}</span>
+                    <span className="md:text-xl font-bold">₹{totalPrice}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="md:text-xl text-black/60">
@@ -62,7 +63,7 @@ export default function CartPage() {
                       %)
                     </span>
                     <span className="md:text-xl font-bold text-red-600">
-                      -${Math.round(totalPrice - adjustedTotalPrice)}
+                      -₹{Math.round(totalPrice - adjustedTotalPrice)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
@@ -75,7 +76,7 @@ export default function CartPage() {
                   <div className="flex items-center justify-between">
                     <span className="md:text-xl text-black">Total</span>
                     <span className="text-xl md:text-2xl font-bold">
-                      ${Math.round(adjustedTotalPrice)}
+                      ₹{Math.round(adjustedTotalPrice)}
                     </span>
                   </div>
                 </div>
@@ -98,13 +99,18 @@ export default function CartPage() {
                     Apply
                   </Button>
                 </div>
-                <Button
-                  type="button"
-                  className="text-sm md:text-base font-medium bg-black rounded-full w-full py-4 h-[54px] md:h-[60px] group"
-                >
-                  Go to Checkout{" "}
-                  <FaArrowRight className="text-xl ml-2 group-hover:translate-x-1 transition-all" />
-                </Button>
+                
+                {/* YAHAN LINK ADD KIYA HAI */}
+                <Link href="/checkout" className="w-full">
+                  <Button
+                    type="button"
+                    className="text-sm md:text-base font-medium bg-black rounded-full w-full py-4 h-[54px] md:h-[60px] group"
+                  >
+                    Go to Checkout{" "}
+                    <FaArrowRight className="text-xl ml-2 group-hover:translate-x-1 transition-all" />
+                  </Button>
+                </Link>
+
               </div>
             </div>
           </>
