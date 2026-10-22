@@ -18,10 +18,20 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false);
 
   // Agar cart khali hai toh wapas bhej do
-  if (!cart || cart.items.length === 0) {
+  // if (!cart || cart.items.length === 0) {
+    //router.push("/shop");
+  //   return null;
+  // }
+
+  // Naya code:
+const cartItems = cart?.items || []; 
+
+if (cartItems.length === 0) {
+    // Agar cart khali hai toh alert dikhao (debugging ke liye)
+    alert("Aapka cart khali hai. Pehle product add karo.");
     router.push("/shop");
     return null;
-  }
+}
 
   const total = Math.round(adjustedTotalPrice);
 
