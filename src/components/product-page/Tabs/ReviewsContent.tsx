@@ -8,10 +8,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ReviewCard from "@/components/common/ReviewCard";
-import { reviewsData } from "@/app/page";
 import Link from "next/link";
 
 const ReviewsContent = () => {
+  // Yahan ek khali array define kar do taaki error na aaye
+  const reviewsData: any[] = []; 
   return (
     <section>
       <div className="flex items-center justify-between flex-col sm:flex-row mb-5 sm:mb-6">
