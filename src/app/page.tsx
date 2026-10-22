@@ -159,7 +159,7 @@ const relatedProductData: Product[] = [
   },
 ];
 
-export const reviewsData: Review[] = [
+const reviewsData: Review[] = [
   {
     id: 1,
     user: "Alex K.",
